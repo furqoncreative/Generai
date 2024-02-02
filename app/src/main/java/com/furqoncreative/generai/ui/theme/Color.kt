@@ -1,4 +1,4 @@
-package com.example.compose
+package com.furqoncreative.generai.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF176E03)
@@ -27,7 +27,6 @@ val md_theme_light_outline = Color(0xFF73796E)
 val md_theme_light_inverseOnSurface = Color(0xFFF1F1EA)
 val md_theme_light_inverseSurface = Color(0xFF2F312D)
 val md_theme_light_inversePrimary = Color(0xFF84DB6A)
-val md_theme_light_shadow = Color(0xFF000000)
 val md_theme_light_surfaceTint = Color(0xFF176E03)
 val md_theme_light_outlineVariant = Color(0xFFC3C8BC)
 val md_theme_light_scrim = Color(0xFF000000)
@@ -58,10 +57,6 @@ val md_theme_dark_outline = Color(0xFF8D9387)
 val md_theme_dark_inverseOnSurface = Color(0xFF1A1C18)
 val md_theme_dark_inverseSurface = Color(0xFFE2E3DC)
 val md_theme_dark_inversePrimary = Color(0xFF176E03)
-val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFF84DB6A)
 val md_theme_dark_outlineVariant = Color(0xFF43483F)
 val md_theme_dark_scrim = Color(0xFF000000)
-
-
-val seed = Color(0xFF136B00)
