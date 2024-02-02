@@ -1,7 +1,6 @@
 package com.furqoncreative.generai
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -88,15 +87,16 @@ fun ContentGeneratorScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(all = 8.dp)
+            .padding(all = 16.dp)
             .verticalScroll(rememberScrollState())
     ) {
 
-        TopAppBar(title = { Text(text = "Generai") })
+        TopAppBar(title = {
+            Text(text = "Generai", style = Typography.titleLarge)
+        })
 
         ContentGenerator(
             onSummarizeClicked = { inputText, format, tone, length ->
-                Log.d("TAG", "ContentGeneratorScreen: $inputText")
                 onSummarizeClicked(inputText, format, tone, length)
             })
 
@@ -117,13 +117,18 @@ fun ContentGeneratorScreen(
             }
 
             is ContentGeneratorUiState.Success -> {
-                Row(modifier = Modifier.padding(all = 8.dp)) {
-                    Icon(
-                        Icons.Outlined.Person, contentDescription = "Person Icon"
-                    )
-                    Text(
-                        text = uiState.outputText, modifier = Modifier.padding(horizontal = 8.dp)
-                    )
+                Column {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = "Result", style = Typography.titleMedium)
+                    Row(modifier = Modifier.padding(all = 8.dp)) {
+                        Icon(
+                            Icons.Outlined.Person, contentDescription = "Person Icon"
+                        )
+                        Text(
+                            text = uiState.outputText,
+                            modifier = Modifier.padding(horizontal = 8.dp)
+                        )
+                    }
                 }
             }
 
@@ -154,10 +159,11 @@ fun ContentGenerator(
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        Text(text = "Topic", style = Typography.titleMedium)
+
         TextField(
             value = topic,
             maxLines = 10,
-            label = { Text(text = "Topic") },
             placeholder = { Text(stringResource(R.string.topic_hint)) },
             onValueChange = { topic = it },
             modifier = Modifier
@@ -243,8 +249,7 @@ fun ContentGenerator(
             Text("Generate Content")
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Result", style = Typography.titleMedium)
+
     }
 }
 
