@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Generai</string>
     <string name="action_go">Go</string>
-    <string name="topic_label">Topic</string>
     <string name="topic_hint">Enter your topic</string>
+    <string name="topic_label">Topic</string>
+    <string name="tone_label">Tone</string>
+    <string name="format_label">Format</string>
+    <string name="length_label">Length</string>
+    <string name="generate_content_label">Generate Content</string>
 </resources>
