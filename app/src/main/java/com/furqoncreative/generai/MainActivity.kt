@@ -159,7 +159,7 @@ fun ContentGenerator(
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Text(text = "Topic", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.topic_label), style = Typography.titleMedium)
 
         TextField(
             value = topic,
@@ -171,7 +171,7 @@ fun ContentGenerator(
                 .height(100.dp)
         )
 
-        Text(text = "Tone", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.tone_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -193,7 +193,7 @@ fun ContentGenerator(
             }
         }
 
-        Text(text = "Format", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.format_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -215,7 +215,7 @@ fun ContentGenerator(
             }
         }
 
-        Text(text = "Length", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.length_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -246,13 +246,12 @@ fun ContentGenerator(
                 .fillMaxWidth()
                 .height(55.dp)
         ) {
-            Text("Generate Content")
+            Text(stringResource(R.string.generate_content_label))
         }
 
 
     }
 }
-
 
 @Composable
 @Preview(showSystemUi = true)
