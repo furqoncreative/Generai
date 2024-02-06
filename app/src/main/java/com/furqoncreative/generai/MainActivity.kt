@@ -68,10 +68,10 @@ class MainActivity : ComponentActivity() {
 internal fun ContentGeneratorRoute(
     contentGeneratorViewModel: ContentGeneratorViewModel = viewModel()
 ) {
-    val summarizeUiState by contentGeneratorViewModel.uiState.collectAsState()
+    val contentGeneratorUiState by contentGeneratorViewModel.uiState.collectAsState()
 
-    ContentGeneratorScreen(summarizeUiState,
-        onSummarizeClicked = { inputText, format, tone, length ->
+    ContentGeneratorScreen(contentGeneratorUiState,
+        onGenerateContentClicked = { inputText, format, tone, length ->
             contentGeneratorViewModel.generateContent(
                 topic = inputText, format = format, tone = tone, length = length
             )
@@ -82,7 +82,7 @@ internal fun ContentGeneratorRoute(
 @Composable
 fun ContentGeneratorScreen(
     uiState: ContentGeneratorUiState = ContentGeneratorUiState.Initial,
-    onSummarizeClicked: (String, Format, Tone, Length) -> Unit = { _: String, _: Format, _: Tone, _: Length -> }
+    onGenerateContentClicked: (String, Format, Tone, Length) -> Unit = { _: String, _: Format, _: Tone, _: Length -> }
 ) {
     Column(
         modifier = Modifier
@@ -91,11 +91,11 @@ fun ContentGeneratorScreen(
             .verticalScroll(rememberScrollState())
     ) {
 
-        TopAppBar(title = { Text(text = "Generai") })
+        TopAppBar(title = { Text(text = stringResource(id = R.string.app_name)) })
 
         ContentGenerator(
-            onSummarizeClicked = { inputText, format, tone, length ->
-                onSummarizeClicked(inputText, format, tone, length)
+            onGenerateContentClicked = { inputText, format, tone, length ->
+                onGenerateContentClicked(inputText, format, tone, length)
             })
 
         when (uiState) {
@@ -140,7 +140,7 @@ fun ContentGeneratorScreen(
 @Composable
 fun ContentGenerator(
     modifier: Modifier = Modifier,
-    onSummarizeClicked: (String, Format, Tone, Length) -> Unit = { _: String, _: Format, _: Tone, _: Length -> }
+    onGenerateContentClicked: (String, Format, Tone, Length) -> Unit = { _: String, _: Format, _: Tone, _: Length -> }
 ) {
     var topic by remember { mutableStateOf("") }
     var selectedFormat by remember { mutableStateOf(Format.PARAGRAPH) }
@@ -231,7 +231,7 @@ fun ContentGenerator(
 
         Button(
             onClick = {
-                onSummarizeClicked(topic, selectedFormat, selectedTone, selectedLength)
+                onGenerateContentClicked(topic, selectedFormat, selectedTone, selectedLength)
             },
             modifier = Modifier
                 .padding(all = 4.dp)
