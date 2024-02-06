@@ -1,7 +1,6 @@
 package com.furqoncreative.generai
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -96,7 +95,6 @@ fun ContentGeneratorScreen(
 
         ContentGenerator(
             onSummarizeClicked = { inputText, format, tone, length ->
-                Log.d("TAG", "ContentGeneratorScreen: $inputText")
                 onSummarizeClicked(inputText, format, tone, length)
             })
 
@@ -157,7 +155,7 @@ fun ContentGenerator(
         TextField(
             value = topic,
             maxLines = 10,
-            label = { Text(text = "Topic") },
+            label = { Text(text = stringResource(R.string.topic_label)) },
             placeholder = { Text(stringResource(R.string.topic_hint)) },
             onValueChange = { topic = it },
             modifier = Modifier
@@ -165,7 +163,7 @@ fun ContentGenerator(
                 .height(100.dp)
         )
 
-        Text(text = "Tone", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.tone_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -187,7 +185,7 @@ fun ContentGenerator(
             }
         }
 
-        Text(text = "Format", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.format_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -209,7 +207,7 @@ fun ContentGenerator(
             }
         }
 
-        Text(text = "Length", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.length_label), style = Typography.titleMedium)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -240,11 +238,11 @@ fun ContentGenerator(
                 .fillMaxWidth()
                 .height(55.dp)
         ) {
-            Text("Generate Content")
+            Text(stringResource(R.string.generate_content_label))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Result", style = Typography.titleMedium)
+        Text(text = stringResource(R.string.result_label), style = Typography.titleMedium)
     }
 }
 
